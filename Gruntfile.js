@@ -44,7 +44,13 @@ module.exports = function(grunt) {
 				// Task-specific options go here.
 			},
 			theme_gcwu: {
-				// Target-specific file lists and/or options go here.
+				options: {
+				},
+				files: {
+					dest: [
+						'src/theme-gcwu-fegc/**/*.html'
+					]
+				}
 			}
 		}
 	});
