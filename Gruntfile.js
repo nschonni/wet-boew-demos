@@ -24,33 +24,27 @@ module.exports = function(grunt) {
 			},
 			gruntfile: {
 				src: 'Gruntfile.js'
-			},
-			lib_test: {
-				src: ['lib/**/*.js', 'test/**/*.js']
 			}
 		},
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
-				tasks: ['jshint:gruntfile']
+				tasks: ['jshint:gruntfile', 'assemble']
 			},
-			lib_test: {
-				files: '<%= jshint.lib_test.src %>',
-				tasks: ['jshint:lib_test', 'qunit']
+			theme_gcwu: {
+				files: 'src/theme-gcwu-fegc/**/*.html',
+				tasks: ['assemble']
 			}
 		},
 		assemble: {
 			options: {
-				// Task-specific options go here.
+				engine: 'handlebars',
+				layout: 'src/theme-gcwu-fegc/layouts/theme-gcwu-fegc-layout.html',
+				assets: '../wet-boew/dist' //Replace with path to submodule of master-dist branch
 			},
-			theme_gcwu: {
-				options: {
-				},
-				files: {
-					dest: [
-						'src/theme-gcwu-fegc/**/*.html'
-					]
-				}
+			files: {
+				src: ['src/theme-gcwu-fegc/pages/*.html'],
+				dest: 'demos/theme-gcwu-fegc/'
 			}
 		}
 	});
